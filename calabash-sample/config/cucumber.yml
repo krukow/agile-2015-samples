@@ -1,0 +1,6 @@
+# config/cucumber.yml
+##YAML Template
+---
+# Platform
+android: CAL_APP=../Superheroes.apk PLATFORM=android -r features
+ios: PLATFORM=ios -r features
