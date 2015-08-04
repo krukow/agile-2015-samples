@@ -1,29 +1,62 @@
 # agile-2015-samples
-Samples used for Agile 2015 conference talk on automated testing for mobile
-
-# Notes
-
-* Base Installation
-** Xcode
-** Android SDK
-** Java JDK
-
-ANDROID_HOME is set to "/Users/krukow/android/adt/sdk"
-JAVA_HOME is set to "/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home."
-
-** Debug keystore
-** device, or sim/emulator
-** Need an app to test :)
+Samples used for Agile 2015 conference talk on automated testing for mobile. These are just a very basic test for Calabash 2.0 and Appium. The intention is to show how easy it is to get started and write the first tests.
 
 
-* Calabash 2.0
+# Talk Notes
 
-** Installation:
-https://github.com/calabash/install -- Just run the curl command. Now I've already done this.
-Right just use: https://github.com/calabash/calabash
+To get started and run tests locally from your machine, you need a base installation. This consists of the basic developer tools for iOS and Android. 
 
-** Scaffold a project
+## Base Installation
 
+1. Xcode
+2. Android SDK
+3. Java JDK
+
+You can run Calabash for Android on Windows, Mac or Linux. We recommend that you use Ruby or 2.x.
+
+You need the following configured on your computer:
+
+The `ANDROID_HOME` environment variable should point to your Android SDK. 
+For me: 
+
+    ➜  ~  echo $ANDROID_HOME
+    /Users/krukow/android/adt/sdk
+    ➜  ~  ls $ANDROID_HOME
+    ..
+    drwxr-xr-x  12 krukow  staff   408B May 29 04:46 platform-tools/
+    
+ i.e. `$ANDROID_HOME` points to the directory which contains the `platform-tools` sub-directory.
+ 
+The `JAVA_HOME` environment variable points to the Java JDK. For me:
+ 
+    JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home
+
+Also make sure you have a debug keystore for Android. The IDE you're using may have created one for you, but if not you can run this command to generate it.
+
+```
+keytool -genkey -v -keystore ~/.android/debug.keystore \
+  -alias androiddebugkey -storepass android \
+  -keypass android -keyalg RSA -keysize 2048 \
+  -validity 10000 \
+  -dname "CN=Android Debug,O=Android,C=US"
+```
+
+
+### Devices, devices, devices
+You need an Android emulator, simulator or real devices. When using a real device, your Android device should be connected via USB and allow USB-debugging. For iOS you need to enable development on the device in XCode and enable UIAutomation in the Developer settings menu under Settings. See also: [http://developer.xamarin.com/guides/testcloud/calabash/working-with/testing-on-devices/](http://developer.xamarin.com/guides/testcloud/calabash/working-with/testing-on-devices/)
+
+I recommend you try out the fast Xamarin Android Player: [https://xamarin.com/android-player](https://xamarin.com/android-player).
+
+
+# Calabash 2.0
+The tests use a pre-release of Calabash 2.0 which will ship a final 2.0 very soon. Once 2.0 ships finally you'll just install it by running a curl command described here: 
+[https://github.com/calabash/install](https://github.com/calabash/install).
+
+Right just install from source: [https://github.com/calabash/calabash](calabash/calabash).
+
+## Scaffold a project
+
+The end result is present in the `calabash-sample` directory. Here is how we got there. You can also watch the screencast recording from the Agile 2015 talk:
   mkdir calabash-sample
   cd calabash-sample
   calabash generate
