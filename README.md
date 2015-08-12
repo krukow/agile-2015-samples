@@ -53,7 +53,7 @@ I recommend you try out the fast Xamarin Android Player: [https://xamarin.com/an
 # Calabash 2.0
 The tests use a pre-release of Calabash 2.0 which will ship a final 2.0 very soon. Once 2.0 is shipped, you'll just install it by running a curl command described here: [https://github.com/calabash/install](https://github.com/calabash/install).
 
-Right now, just install from source: [https://github.com/calabash/calabash](calabash/calabash) (follow the instructions there) or you can install a non-published prerelease by running `gem install --local calabash-1.9.9.pre3.gem` from the main directory in this repo.
+Right now, just install from prerelease: by running `gem install calabash --pre` from the main directory in this repo.
 
 ## Scaffold a project
 The end result is present in the `calabash-sample` directory. Here is how we got there. 
